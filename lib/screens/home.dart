@@ -53,6 +53,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
+                      // List out all ToDo items with check and delete options
                       for (ToDo todoo in _foundToDo.reversed)
                         ToDoItem(
                           todo: todoo,
@@ -91,6 +92,7 @@ class _HomeState extends State<Home> {
                     ],
                     borderRadius: BorderRadius.circular(10),
                   ),
+                  // Field for typing out new ToDo items
                   child: TextField(
                     controller: _todoController,
                     decoration: InputDecoration(
@@ -104,6 +106,7 @@ class _HomeState extends State<Home> {
                   bottom: 20,
                   right: 20,
                 ),
+                // Button for adding the new ToDo item
                 child: ElevatedButton(
                   child: Text(
                     '+',
@@ -115,7 +118,7 @@ class _HomeState extends State<Home> {
                     _addToDoItem(_todoController.text);
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: tdBlue,
+                    backgroundColor: tdBlue,
                     minimumSize: Size(60, 60),
                     elevation: 10,
                   ),
@@ -128,18 +131,21 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // Function for updating the status of a ToDo item
   void _handleToDoChange(ToDo todo) {
     setState(() {
       todo.isDone = !todo.isDone;
     });
   }
 
+  // Function to delete ToDo item from state
   void _deleteToDoItem(String id) {
     setState(() {
       todosList.removeWhere((item) => item.id == id);
     });
   }
 
+  // Function to add a new ToDo item to state
   void _addToDoItem(String toDo) {
     setState(() {
       todosList.add(ToDo(
@@ -150,11 +156,13 @@ class _HomeState extends State<Home> {
     _todoController.clear();
   }
 
+  // Function for filtering ToDo items based on a passed in keyword
   void _runFilter(String enteredKeyword) {
     List<ToDo> results = [];
     if (enteredKeyword.isEmpty) {
       results = todosList;
     } else {
+      // Results are any ToDo items that contain the keyword
       results = todosList
           .where((item) => item.todoText!
               .toLowerCase()
@@ -167,6 +175,7 @@ class _HomeState extends State<Home> {
     });
   }
 
+  // Searchbox widget
   Widget searchBox() {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 15),
@@ -195,6 +204,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+  // App Bar
   AppBar _buildAppBar() {
     return AppBar(
       backgroundColor: tdBGColor,
