@@ -153,6 +153,7 @@ class _HomeState extends State<Home> {
         todoText: toDo,
       ));
     });
+    // Clear the input bar
     _todoController.clear();
   }
 
@@ -183,6 +184,7 @@ class _HomeState extends State<Home> {
         color: Colors.white,
         borderRadius: BorderRadius.circular(20),
       ),
+      // Search bar with filter functionality
       child: TextField(
         onChanged: (value) => _runFilter(value),
         decoration: InputDecoration(
