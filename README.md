@@ -5,4 +5,9 @@ Welcome to Kevin's Flutter Todo App submission for CS 279R.
 (Citations for work: [Flutter ToDo App Tutorial for Beginners](https://www.youtube.com/watch?v=K4P5DZ9TRns)).
 
 ## How to run app
-I was not able to generate a working to-do app.
+I was not able to generate a working to-do app link.
+
+To run locally, enter the following into the command line
+```console
+flutter run
+```
